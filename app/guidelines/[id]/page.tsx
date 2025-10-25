@@ -40,14 +40,16 @@ const Guidelines: React.FC = () => {
     const { setEssay } = useEssay();
 
     useEffect(() => {
-        let apiUrl;
+        let apiUrl: string;
         // Determine the correct API URL based on the hostname
         if (typeof window !== 'undefined') {
             if (window.location.hostname === 'localhost') {
                 apiUrl = 'http://localhost:4000';
             } else {
-                apiUrl = process.env.NEXT_PUBLIC_DEPLOYMENT_URL;
+                apiUrl = process.env.NEXT_PUBLIC_DEPLOYMENT_URL || 'http://52.64.209.177:4000';
             }
+        } else {
+            apiUrl = 'http://52.64.209.177:4000';
         }
         
         const fetchData = async () => {

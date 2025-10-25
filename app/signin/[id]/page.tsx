@@ -65,17 +65,17 @@ export default function SignIn() {
         return isValid;
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
         
         // Clear error when user starts typing
-        if (errors[id]) {
+        if (errors[id as keyof typeof errors]) {
             setErrors({ ...errors, [id]: '' });
         }
     };
 
-    const handleRememberMeChange = (e) => {
+    const handleRememberMeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setRememberMe(e.target.checked);
     };
 
@@ -119,9 +119,9 @@ export default function SignIn() {
             } else {
                 toast.error('Invalid credentials');
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error('Error during sign in:', error);
-            const errorMessage = error.response?.data?.message || 'An error occurred. Please try again.';
+            const errorMessage = error?.response?.data?.message || 'An error occurred. Please try again.';
             toast.error(errorMessage);
         } finally {
             setIsLoading(false);
@@ -267,7 +267,7 @@ export default function SignIn() {
                         </div>
 
                         <div className="text-center mt-8">
-                            <span className="text-gray-500 text-sm">Don't have an account?</span>
+                            <span className="text-gray-500 text-sm">Don&apos;t have an account?</span>
                             <Button
                                 variant="link"
                                 className="text-green-600 hover:text-green-800 text-sm font-medium"

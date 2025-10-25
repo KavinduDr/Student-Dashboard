@@ -17,12 +17,12 @@ const SubmissionPage: React.FC = () => {
     const { essay } = useEssay();
     const { quiz } = useQuiz();
 
-    const [quizData, setQuizData] = useState(null);
-    const [essayData, setEssayData] = useState(null);
+    const [quizData, setQuizData] = useState<any>(null);
+    const [essayData, setEssayData] = useState<any>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isQuiz, setIsQuiz] = useState(false);
     const [isEssay, setIsEssay] = useState(false);
-    const [savedAnswers, setSavedAnswers] = useState([]);
+    const [savedAnswers, setSavedAnswers] = useState<any[]>([]);
     const [submissionInProgress, setSubmissionInProgress] = useState(false);
 
     useEffect(() => {

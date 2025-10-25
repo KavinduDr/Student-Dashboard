@@ -87,7 +87,7 @@ const QuizPage = () => {
         if (typeof window !== 'undefined') {
             const url = window.location.hostname === 'localhost' 
                 ? 'http://localhost:4000' 
-                : process.env.NEXT_PUBLIC_DEPLOYMENT_URL;
+                : process.env.NEXT_PUBLIC_DEPLOYMENT_URL || 'http://52.64.209.177:4000';
             setApiUrl(url);
         }
     }, []);
@@ -553,7 +553,7 @@ const QuizPage = () => {
                     <div className="text-center">
                         <AlertCircle className="h-12 w-12 text-amber-500 mx-auto mb-4" />
                         <h2 className="text-xl font-semibold text-gray-800 mb-2">No Assessment Found</h2>
-                        <p className="text-gray-600 mb-6">We couldn't find the quiz or essay you're looking for.</p>
+                        <p className="text-gray-600 mb-6">We couldn&apos;t find the quiz or essay you&apos;re looking for.</p>
                         <button 
                             onClick={() => router.push('/dashboard')}
                             className="px-6 py-2 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg transition-colors"

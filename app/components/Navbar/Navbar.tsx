@@ -41,7 +41,7 @@ const Navbar = () => {
     router.push('/signin');
   };
 
-  const handleNavigation = (path) => {
+  const handleNavigation = (path: string) => {
     setActiveTab(path);
     router.push(`/${path}`);
   };

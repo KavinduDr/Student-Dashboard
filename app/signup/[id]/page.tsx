@@ -4,9 +4,9 @@ import { useRouter, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import { Card } from "../components/ui/card";
+import { Button } from "@/app/components/ui/button";
+import { Input } from "@/app/components/ui/input";
+import { Card } from "@/app/components/ui/card";
 import { Loader2, Mail, Lock, User, Eye, EyeOff, CreditCard } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -105,12 +105,12 @@ export default function SignUp() {
         return isValid;
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
         
         // Clear error when user starts typing
-        if (errors[id]) {
+        if (errors[id as keyof typeof errors]) {
             setErrors({ ...errors, [id]: '' });
         }
     };
@@ -151,9 +151,9 @@ export default function SignUp() {
                     router.push(id ? `/signin/${id}` : '/signin');
                 }
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error('Error during registration:', error);
-            const errorMessage = error.response?.data?.message || 'Registration failed. Please try again.';
+            const errorMessage = error?.response?.data?.message || 'Registration failed. Please try again.';
             toast.error(errorMessage);
         } finally {
             setIsLoading(false);
