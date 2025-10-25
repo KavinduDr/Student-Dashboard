@@ -8,16 +8,16 @@ const InitialPage: React.FC = () => {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 via-green-50 to-white flex justify-center items-center px-4 relative overflow-hidden">
+    <div className="h-screen bg-gradient-to-b from-green-50 via-green-50 to-white flex justify-center items-center px-4 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="fixed top-20 left-20 w-64 h-64 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="fixed top-40 right-20 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
       <div className="fixed bottom-20 left-1/4 w-56 h-56 bg-green-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
       
-      <div className="w-full max-w-md flex flex-col justify-start items-center gap-11 z-10">
+      <div className="w-full max-w-md flex flex-col justify-start items-center gap-6 z-10 py-4">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold text-gray-800 mb-2">Getting Started</h1>
-          <p className="text-gray-600">Begin your educational journey</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-2">Getting Started</h1>
+          <p className="text-sm md:text-base text-gray-600">Begin your educational journey</p>
         </div>
         
         <div className="w-full max-w-sm mx-auto perspective">
@@ -59,11 +59,11 @@ const InitialPage: React.FC = () => {
           </div>
         </div>
         
-        <div className="w-full space-y-4 mt-6">
+        <div className="w-full space-y-3 mt-3">
           <button
             type="button"
             onClick={() => router.push('/signup')}
-            className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 tracking-wider flex items-center justify-center"
+            className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 tracking-wider flex items-center justify-center"
           >
             <span>SIGN UP</span>
           </button>
@@ -71,13 +71,13 @@ const InitialPage: React.FC = () => {
           <button
             type="button"
             onClick={() => router.push('/signin')}
-            className="w-full bg-white border-2 border-green-500 text-green-600 hover:bg-green-50 font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 tracking-wider flex items-center justify-center"
+            className="w-full bg-white border-2 border-green-500 text-green-600 hover:bg-green-50 font-bold py-2.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 tracking-wider flex items-center justify-center"
           >
             <span>SIGN IN</span>
           </button>
         </div>
         
-        <div className="mt-6 text-center text-sm text-gray-500">
+        <div className="mt-3 text-center text-xs md:text-sm text-gray-500">
           <p>The smart platform for educational assessments</p>
         </div>
       </div>

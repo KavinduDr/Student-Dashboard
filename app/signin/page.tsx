@@ -71,48 +71,97 @@ const SignIn = () => {
     }
 
     return (
-        <div className='w-full h-screen flex justify-center items-center'>
-            <div className="w-[830px] h-[640px] flex flex-col justify-center items-center gap-[42px]">
-                <div className="self-stretch h-[25px] text-center text-black text-[32px] font-bold font-['Inter']">Sign in</div>
-                <Image className="w-[273px] h-60" src="/SignIn.png" alt='sign in image' width={380} height={380} />
-                <div className="self-stretch flex flex-col justify-center items-center gap-[20px]">
-                    <div className="flex gap-[86px]">
-                        <div className="h-[68px] relative">
-                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Index</label>
-                            <input type="text" id="registrationNumber" value={formData.registrationNumber} onChange={handleChange} className="bg-green-200 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-black" placeholder="EG/XXXX/XXXX" />
-                        </div>
-                        <div className="h-[68px] relative">
-                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" id="password" value={formData.password} onChange={handleChange} className="bg-green-200 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-black" placeholder="Password" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center w-full mt-4">
-                        <div className="flex items-center">
-                            <input id="rememberMe" type="radio" checked={rememberMe} onChange={handleRememberMeChange} name="default-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                            <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember Me</label>
-                        </div>
-                        <div className="flex items-center">
-                            <div className="w-[169px] h-4 text-black text-xl font-medium font-['Inter'] cursor-pointer">Forgot Password ?</div>
-                        </div>
-                    </div>
-                </div>
-                <button
-                    type="button"
-                    onClick={handleSignIn}
-                    className="focus:outline-none text-black bg-[#0cdc09] hover:bg-green-800 hover:border hover:border-[#0cdc09] focus:ring-4 focus:ring-green-300 font-bold font-['Inter'] tracking-[3.60px] rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-[#0cdc09] dark:hover:bg-transparent dark:focus:ring-green-800 transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+        <div className='w-full h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex justify-center items-center px-4 py-4 relative overflow-hidden'>
+            {/* Animated background elements */}
+            <div className="absolute top-0 left-0 w-96 h-96 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-teal-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
 
-                >
-                    Sign in
-                </button>
-                <div className="flex flex-row items-center gap-2">
-                    <div className="text-black text-xl font-light font-['Inter']">Don&apos;t have an account?</div>
-                    <button
-                        onClick={() => router.push('/signup')}
-                        className="text-blue-500 hover:underline text-xl font-bold font-['Inter']"
-                    >
-                        Sign up
-                    </button>
+            <div className="w-full max-w-md relative z-10">
+                <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-white/20">
+                    {/* Header */}
+                    <div className="text-center mb-4">
+                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-2 shadow-lg">
+                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                            </svg>
+                        </div>
+                        <h1 className="text-2xl font-bold text-gray-800 mb-1">Welcome Back</h1>
+                        <p className="text-sm text-gray-600">Sign in to continue your learning</p>
+                    </div>
+
+                    {/* Illustration */}
+                    <div className="flex justify-center mb-4">
+                        <div className="relative group">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                            <Image className="relative w-32 h-auto rounded-lg" src="/SignIn.png" alt='sign in image' width={380} height={380} />
+                        </div>
+                    </div>
+
+                    {/* Form */}
+                    <div className="space-y-3">
+                        <div className="relative">
+                            <label htmlFor="registrationNumber" className="block mb-1 text-xs font-semibold text-gray-700">Registration Number</label>
+                            <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                                    </svg>
+                                </div>
+                                <input type="text" id="registrationNumber" value={formData.registrationNumber} onChange={handleChange} className="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent block w-full pl-9 p-2.5 transition-all duration-200 hover:border-green-300" placeholder="EG/2020/1234" />
+                            </div>
+                        </div>
+
+                        <div className="relative">
+                            <label htmlFor="password" className="block mb-1 text-xs font-semibold text-gray-700">Password</label>
+                            <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                </div>
+                                <input type="password" id="password" value={formData.password} onChange={handleChange} className="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent block w-full pl-9 p-2.5 transition-all duration-200 hover:border-green-300" placeholder="••••••••" />
+                            </div>
+                        </div>
+
+                        {/* Remember Me & Forgot Password */}
+                        <div className="flex items-center justify-between pt-1">
+                            <div className="flex items-center">
+                                <input id="rememberMe" type="checkbox" checked={rememberMe} onChange={handleRememberMeChange} className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2 cursor-pointer" />
+                                <label htmlFor="rememberMe" className="ml-2 text-xs font-medium text-gray-700 cursor-pointer">Remember me</label>
+                            </div>
+                            <button className="text-xs font-medium text-green-600 hover:text-green-700 hover:underline transition-colors duration-200">
+                                Forgot password?
+                            </button>
+                        </div>
+
+                        <button
+                            type="button"
+                            onClick={handleSignIn}
+                            className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-green-300"
+                        >
+                            Sign In
+                        </button>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="mt-3 text-center">
+                        <p className="text-xs text-gray-600">
+                            Don&apos;t have an account?{' '}
+                            <button
+                                onClick={() => router.push('/signup')}
+                                className="font-semibold text-green-600 hover:text-green-700 transition-colors duration-200 hover:underline"
+                            >
+                                Sign up here
+                            </button>
+                        </p>
+                    </div>
                 </div>
+
+                {/* Additional info */}
+                <p className="text-center text-xs text-gray-500 mt-3">
+                    Secure login • Your data is protected
+                </p>
             </div>
         </div>
     );
